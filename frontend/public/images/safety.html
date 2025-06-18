@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whiskers and Whispers Cafe</title>
+  <link rel="stylesheet" href="proj.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="index.html">WhiskersAndWhispersCafe</a>
+    <a class="navbar-brand" href="index.html"><img src="/proj.jpg" width="150px" height="100px" alt="Logo" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item me-4"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item me-4"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item me-4"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item me-4"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item me-4"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item me-3"><a href="reservation.html" class="btn btn-outline-dark">Reservation</a></li>
+        <li class="nav-item">
+          <a href="#"><i class="bi bi-cart-fill fs-4"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO / TOP SECTION -->
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center text-center"
+     style="background-image: url('bg3.jpg'); background-size: cover; background-position: center; min-height: 300px;">
+  <h2 class="pt-5 text-white fw-bold">WHISKERS AND WHISPERS CAFE</h2>
+  <a href="reservation.html" class="btn btn-light mt-3 fs-5">Book a Table</a>
+</div>
+
+<!-- ABOUT US SECTION -->
+<div class="container py-5" id="about">
+  <div class="row align-items-center">
+    <div class="col-md-6 text-start">
+      <h5>ABOUT US</h5>
+      <p>
+        Whiskers And Whispers cafe was established in 2019 with a mission to create an environment where our patrons can hang out with their loved ones and celebrate life's special moments. We've got the best ambience in Coimbatore with hearty food, a convivial place to gather and WOW everyday!<br><br>
+        Our vision is to be our patrons' beloved place of all time where they feel as comfortable as they are at their home.
+      </p>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="au.jpg" class="img-fluid" alt="About Us Image">
+    </div>
+  </div>
+</div>
+
+<!-- WHY US SECTION -->
+<div class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-6 text-center">
+      <img src="wu.jpg" class="img-fluid" alt="Why Us Image">
+    </div>
+    <div class="col-md-6 text-start">
+      <h5>WHY US</h5>
+      <p>
+        We are well known for the cosy atmosphere, where you can hang out with your dearest. We are the local’s favourite when it comes to events and birthday parties. We provide top-notch continental food accompanied by great service.
+        <br><br>
+        <strong>Location Theme:</strong><br>
+        • Dark and cosy<br>
+        • Illuminated Floor lights in the celebration area.<br><br>
+        <strong>Safety Measures:</strong><br>
+        • Temperature Check during entry<br>
+        • Staff Hygiene & Sanitized Premises
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SPECIAL DISHES SECTION -->
+<div class="container py-5" id="menu">
+  <h3 class="text-center mb-4">Our Special Dishes</h3>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img src="alf.jpg" class="card-img-top" alt="Spaghetti Alfredo" height="400px">
+        <div class="card-body">
+          <h5 class="card-title">Spaghetti Alfredo</h5>
+          <p class="card-text">Creamy pasta served with herbs and cheese.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img src="nacho.jpg" class="card-img-top" alt="Cheesy Nachos" height="400px">
+        <div class="card-body">
+          <h5 class="card-title">Cheesy Nachos</h5>
+          <p class="card-text">Crispy nachos topped with cheese and salsa.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img src="bro.jpg" class="card-img-top" alt="Chocolate Brownie" height="400px">
+        <div class="card-body">
+          <h5 class="card-title">Chocolate Brownie</h5>
+          <p class="card-text">Delicious warm brownie served with ice cream.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <a href="menu.html" class="btn btn-dark mt-3">Explore Menu</a>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="container py-5" id="gallery">
+  <h3 class="mb-4 text-center">Gallery</h3>
+  <div class="row g-3">
+    <div class="col-md-4"><img src="g1.jpg" class="img-fluid rounded" style="height:250px;width:100%"></div>
+    <div class="col-md-4"><img src="g2.jpg" class="img-fluid rounded" style="height:250px;width:100%"></div>
+    <div class="col-md-4"><img src="g3.jpg" class="img-fluid rounded" style="height:250px;width:100%"></div>
+    <div class="col-md-4"><img src="g4.jpg" class="img-fluid rounded" style="height:250px;width:100%"></div>
+    <div class="col-md-4"><img src="g5.jpg" class="img-fluid rounded" style="height:250px;width:100%"></div>
+    <div class="col-md-4"><img src="g8.jpg" class="img-fluid rounded" style="height:250px;width:100%"></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="container py-5">
+  <h3 class="mb-4 text-center">What Our Customers Say</h3>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <p>"Amazing ambience and great food! A perfect place to relax with friends."</p>
+          <h5>- Vanitha</h5>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <p>"Absolutely loved the brownie! Will definitely come back again."</p>
+          <h5>- Muthukumar</h5>
+          <div class="text-warning">★★★★☆</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <p>"The staff were super friendly and the place is very cozy. Highly recommended!"</p>
+          <h5>- Harini</h5>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION SECTION -->
+<div class="container py-5">
+  <h3 class="text-center mb-4">Location</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="ratio ratio-4x3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex flex-column justify-content-center">
+      <h5>Whiskers and Whispers Cafe</h5>
+      <p>15/3A, Floor 100, NGP Hub, Nehru Rd, Kalapatti, Coimbatore, Tamil Nadu 641402</p>
+      <a href="https://www.google.com/maps/place/NGP+Hub,+Kalapatti" target="_blank" class="btn btn-outline-primary mt-3">Get Directions</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section class="py-5 bg-light" id="contact">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Get in Touch</h5>
+        <p><strong>Instagram:</strong> whiskersandwhisperscafe</p>
+        <p><strong>Phone:</strong> <a href="tel:4444455555">44444 55555</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@whispersandwhiskerscafe.com">info@whispersandwhiskerscafe.com</a></p>
+        <p><strong>Opening Hours:</strong><br>Mon–Sun: 11:00 AM – 11:00 PM</p>
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3"><label for="name" class="form-label">Your Name</label><input type="text" class="form-control" id="name"></div>
+          <div class="mb-3"><label for="email" class="form-label">Your Email</label><input type="email" class="form-control" id="email"></div>
+          <div class="mb-3"><label for="message" class="form-label">Your Message</label><textarea class="form-control" id="message" rows="4"></textarea></div>
+          <button type="submit" class="btn btn-dark">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-5 mt-5 border-top">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <h4 class="fw-bold">Whispers And Whiskers Cafe</h4>
+        <p>We are well known for the cosy atmosphere. The local’s favourite for events and parties.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a href="#home" class="nav-link p-0 text-white">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link p-0 text-white">About</a></li>
+          <li class="nav-item"><a href="menu.html" class="nav-link p-0 text-white">Menu</a></li>
+          <li class="nav-item"><a href="#gallery" class="nav-link p-0 text-white">Gallery</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link p-0 text-white">Contact</a></li>
+          <li class="nav-item"><a href="reservation.html" class="nav-link p-0 text-white">Reservation</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Location</h5>
+        <p>📍 15/3A, Floor 100, NGP Hub, Kalapatti, Coimbatore</p>
+        <p>📞 44444 55555</p>
+        <p>📧 info@whispersandwhiskers.in</p>
+      </div>
+    </div>
+    <hr class="text-secondary my-4">
+    <p class="text-center mb-0">© 2025 Whiskers And Whispers Cafe | Managed by Vamtech</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
