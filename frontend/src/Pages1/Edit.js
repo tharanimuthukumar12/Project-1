@@ -23,10 +23,12 @@ const Edit = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
+  const backendURL = 'https://intern-backend-project.onrender.com';
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(`http://localhost:6065/snsbyid/${id}`);
+        const res = await fetch(`${backendURL}/snsbyid/${id}`);
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
         setForm(data);
@@ -50,7 +52,7 @@ const Edit = () => {
     setSubmitting(true);
 
     try {
-      const res = await fetch(`http://localhost:6065/allproductsnacks/${id}`, {
+      const res = await fetch(`${backendURL}/allproductsnacks/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
@@ -152,9 +154,6 @@ const Edit = () => {
         <button type="submit" disabled={submitting}>
           {submitting ? 'Updating...' : 'Update Reservation'}
         </button>
-
-        
-
       </form>
     </div>
   );

@@ -1,20 +1,24 @@
-const express=require('express');
-const cors=require('cors');
+const express = require('express');
+const cors = require('cors');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+require('dotenv').config(); // Load environment variables from .env if available (optional)
 
-const app=express();
-const port=6065;
+const app = express();
+const port = process.env.PORT || 6065;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
-app.get("/",(req,res)=>{
-    res.send("Welcome to api");
-})
 
+// Root route
+app.get("/", (req, res) => {
+  res.send("✅ WhiskersAndWhispersCafe API is live!");
+});
 
-const { MongoClient, ServerApiVersion, ObjectId} = require('mongodb');
-const uri = "mongodb+srv://tharanimuthukumar12:test123@cluster0.amiidbt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// MongoDB URI
+const uri = process.env.MONGO_URI || "mongodb+srv://tharanimuthukumar12:test123@cluster0.amiidbt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// MongoDB client
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -25,63 +29,58 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-   
-    const cloth=client.db("demo").collection("hello");
+    console.log("✅ MongoDB connected successfully");
 
-    app.post("/upload",async(req,res)=>{
-        const data=req.body;
-        const result=await cloth.insertOne(data);
-        res.send(result);
-    })
-     app.get("/sns",async(req,res)=>{
-      const foods=cloth.find();
-      const result=await foods.toArray();
-      res.send(result);
-  })
+    const cloth = client.db("demo").collection("hello");
 
-  app.get("/snsbyid/:id",async(req,res)=>{
-    const id=req.params.id;
-    const filter={_id:new ObjectId(id)};
-    const result=await cloth.findOne(filter);
-    res.send(result);
-  })
-  
-  app.patch("/allproductsnacks/:id",async(req,res)=>{
-    
-      const id=req.params.id;
-      const updateFooddata=req.body;
-      const filter={_id:new ObjectId(id)};
+    // Create
+    app.post("/upload", async (req, res) => {
+      const data = req.body;
+      const result = await cloth.insertOne(data);
+      res.status(201).json(result);
+    });
 
-      const updateDoc={
-          $set:{
-              ...updateFooddata
-          },
-      }
-      const options ={upsert:true};
-      const result=await cloth.updateOne(filter,updateDoc,options);
-      res.send(result);
-  })
+    // Read All
+    app.get("/sns", async (req, res) => {
+      const foods = await cloth.find().toArray();
+      res.status(200).json(foods);
+    });
 
-  app.delete('/deletesnack/:id',async(req,res)=>{
-      const id=req.params.id;
-      console.log(id)
-      const filter={_id:new ObjectId(id)};
-      const result=await cloth.deleteOne(filter);
-      res.status(200).json({success:true , message:"data deleted successfully", result});
-  })
-    await client.db("admin").command({ ping: 1 });
+    // Read by ID
+    app.get("/snsbyid/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const result = await cloth.findOne(filter);
+      res.status(200).json(result);
+    });
 
+    // Update by ID
+    app.patch("/allproductsnacks/:id", async (req, res) => {
+      const id = req.params.id;
+      const updateFooddata = req.body;
+      const filter = { _id: new ObjectId(id) };
+      const updateDoc = { $set: { ...updateFooddata } };
+      const result = await cloth.updateOne(filter, updateDoc);
+      res.status(200).json(result);
+    });
 
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    // await client.close();
+    // Delete by ID
+    app.delete("/deletesnack/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const result = await cloth.deleteOne(filter);
+      res.status(200).json({ success: true, message: "Data deleted", result });
+    });
+
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err);
   }
 }
+
+// Start the server
 run().catch(console.dir);
 
-app.listen(port,()=>{
-    console.log(`connected to ${port}`)
-})
+app.listen(port, () => {
+  console.log(`🚀 Server running on port ${port}`);
+});

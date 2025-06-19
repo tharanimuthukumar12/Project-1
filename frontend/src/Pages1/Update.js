@@ -1,4 +1,3 @@
-// src/Pages1/Update.js
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -7,9 +6,11 @@ import { FiEdit } from "react-icons/fi";
 const Update = () => {
   const [ProductItems, setProductsItems] = useState([]);
 
-  // Fetch all reservation/snack items on mount
+  // ✅ Use your deployed backend URL
+  const backendURL = 'https://intern-backend-project.onrender.com';
+
   useEffect(() => {
-    fetch(`http://localhost:6065/sns`)
+    fetch(`${backendURL}/sns`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch data");
         return res.json();
@@ -21,9 +22,8 @@ const Update = () => {
       });
   }, []);
 
-  // Delete item by id and update UI
   const DeleteItems = (id) => {
-    fetch(`http://localhost:6065/deletesnack/${id}`, {
+    fetch(`${backendURL}/deletesnack/${id}`, {
       method: "DELETE",
     })
       .then((res) => {

@@ -1,9 +1,12 @@
+// src/Pages1/Reservation.js
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Reservation = () => {
+  const backendURL = 'https://intern-backend-project.onrender.com';
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -31,7 +34,7 @@ const Reservation = () => {
     } else {
       const foods = { name, email, gno, date, phno, request, planfor, occasion };
 
-      fetch('http://localhost:6065/upload', {
+      fetch(`${backendURL}/upload`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,6 +45,10 @@ const Reservation = () => {
           toast.success('Reservation added successfully');
           form.reset();
           window.location.href = "/";
+        })
+        .catch((err) => {
+          console.error("Submission failed", err);
+          toast.error("Failed to submit reservation");
         });
     }
   };
@@ -106,17 +113,14 @@ const Reservation = () => {
                 <option value="Get Together">Get Together</option>
                 <option value="Other">Other</option>
               </select><br /><br />
-              <button type="submit">Submit</button><br/><br/>
-             <Link to="/Update">
-  <button type="button">Delete</button>
-</Link><br/><br/>
+              <button type="submit">Submit</button><br /><br />
+              <Link to="/Update">
+                <button type="button">Delete</button>
+              </Link><br /><br />
 
- <Link to="/Edit">
-  <button type="button">Edit</button>
-</Link><br/><br/>
-
-
-
+              <Link to="/Edit">
+                <button type="button">Edit</button>
+              </Link><br /><br />
             </form>
           </center>
         </div>
